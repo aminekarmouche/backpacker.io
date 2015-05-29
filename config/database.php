@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mongodb',
+	'default' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -44,35 +44,47 @@ return array(
 	|
 	*/
 
-	'connections' => array(
+	'connections' => [
 
-		'mongodb' => array(
-			'driver'   => 'mongodb',
-			'host'	   => 'localhost',
-			'port'     => 27017,
-		    'username' => 'test_user',
-		    'password' => 'test_password',
-		    'database' => 'test_api',
-		),
-
-		'sqlite' => array(
+		'sqlite' => [
 			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/production.sqlite',
+			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
-		),
+		],
 
-		'mysql' => array(
+		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'test_api',
-			'username'  => 'test_user',
-			'password'  => 'test_password',
+			'host'      => env('DB_HOST', 'localhost'),
+			'database'  => env('DB_DATABASE', 'forge'),
+			'username'  => env('DB_USERNAME', 'forge'),
+			'password'  => env('DB_PASSWORD', ''),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+			'strict'    => false,
+		],
 
-	),
+		'pgsql' => [
+			'driver'   => 'pgsql',
+			'host'     => env('DB_HOST', 'localhost'),
+			'database' => env('DB_DATABASE', 'forge'),
+			'username' => env('DB_USERNAME', 'forge'),
+			'password' => env('DB_PASSWORD', ''),
+			'charset'  => 'utf8',
+			'prefix'   => '',
+			'schema'   => 'public',
+		],
+
+		'sqlsrv' => [
+			'driver'   => 'sqlsrv',
+			'host'     => env('DB_HOST', 'localhost'),
+			'database' => env('DB_DATABASE', 'forge'),
+			'username' => env('DB_USERNAME', 'forge'),
+			'password' => env('DB_PASSWORD', ''),
+			'prefix'   => '',
+		],
+
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -98,16 +110,16 @@ return array(
 	|
 	*/
 
-	'redis' => array(
+	'redis' => [
 
 		'cluster' => false,
 
-		'default' => array(
+		'default' => [
 			'host'     => '127.0.0.1',
 			'port'     => 6379,
 			'database' => 0,
-		),
+		],
 
-	),
+	],
 
-);
+];
