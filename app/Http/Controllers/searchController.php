@@ -1,0 +1,4 @@
+
+Class searchController extends Controller{
+
+}
