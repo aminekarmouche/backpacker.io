@@ -24,7 +24,7 @@
         </div>
     </form>
 
-<form>
+<form method="POST" action="/auth/login">
     <div id="login-overlay" class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -38,7 +38,7 @@
                           <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
                               <div class="form-group">
                                   <label for="username" class="control-label">Username</label>
-                                  <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                  <input type="email" class="form-control" id="username" name="email" value="{{ old('email') }}" required="" title="Please enter you username" placeholder="example@gmail.com">
                                   <span class="help-block"></span>
                               </div>
                               <div class="form-group">
@@ -68,7 +68,7 @@
                           <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
                           <li><a href="/read-more/"><u>Read more</u></a></li>
                       </ul>
-                      <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                      <p><a href="/auth/register" class="btn btn-info btn-block">Yes please, register now!</a></p>
                   </div>
               </div>
           </div>
